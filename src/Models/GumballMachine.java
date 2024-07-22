@@ -9,7 +9,7 @@ public class GumballMachine {
     State hasQuarterState;
     State soldState;
     State winnerState;
-    State chooseFavor;
+    State chooseFavorState;
     State state;
     int count = 0;
     String flavor = "default";
@@ -20,11 +20,9 @@ public class GumballMachine {
         hasQuarterState = new HasQuarterState(this);
         soldState = new SoldState(this);
         winnerState = new WinnerState(this);
-        chooseFavor = new ChooseFavorState(this);
+        chooseFavorState = new ChooseFavorState(this);
         this.count = numberGumballs;
-        if (numberGumballs > 0) {
-            state = noQuarterState;
-        }
+        if (numberGumballs > 0) { state = noQuarterState; }
     }
 
     public void choose(String flavor){
@@ -82,8 +80,7 @@ public class GumballMachine {
         return winnerState;
     }
 
-    public State getChooseFavorState() {return chooseFavor;
-    }
+    public State getChooseFavorState() {return chooseFavorState; }
 
     public int getCount() {
         return count;
