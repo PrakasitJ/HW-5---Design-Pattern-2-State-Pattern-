@@ -1,8 +1,15 @@
+//6510450585 Prakasit Jaiharn
+package States;
+
+import Models.GumballMachine;
+
 public class WinnerState implements State {
     GumballMachine gumballMachine;
+
     public WinnerState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
     }
+
     @Override
     public void insertQuarter() {
         System.out.println("Please wait, we're already giving you a gumball");

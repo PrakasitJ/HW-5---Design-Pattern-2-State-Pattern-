@@ -1,3 +1,6 @@
+//6510450585 Prakasit Jaiharn
+package Models;
+
 import States.*;
 
 public class GumballMachine {
@@ -7,8 +10,7 @@ public class GumballMachine {
     State soldState;
     State winnerState;
     State chooseFavor;
-
-    State state = soldOutState;
+    State state;
     int count = 0;
     String flavor = "default";
 
@@ -16,9 +18,9 @@ public class GumballMachine {
         soldOutState = new SoldOutState(this);
         noQuarterState = new NoQuarterState(this);
         hasQuarterState = new HasQuarterState(this);
-        soldState = new SoldSate(this);
+        soldState = new SoldState(this);
         winnerState = new WinnerState(this);
-        chooseFavor = new ChooseFavor(this);
+        chooseFavor = new ChooseFavorState(this);
         this.count = numberGumballs;
         if (numberGumballs > 0) {
             state = noQuarterState;
@@ -49,11 +51,11 @@ public class GumballMachine {
         return state;
     }
 
-    void setState(State state) {
+    public void setState(State state) {
         this.state = state;
     }
 
-    void releaseBall(){
+    public void releaseBall(){
         System.out.println("A gumball comes rolling out the slot...");
         if (count != 0) {
             count = count - 1;
@@ -80,8 +82,7 @@ public class GumballMachine {
         return winnerState;
     }
 
-    public State getChooseFavor() {
-        return chooseFavor;
+    public State getChooseFavorState() {return chooseFavor;
     }
 
     public int getCount() {

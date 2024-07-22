@@ -1,11 +1,15 @@
-import java.util.Random;
+//6510450585 Prakasit Jaiharn
+package States;
+
+import Models.GumballMachine;
 
 public class HasQuarterState implements State {
-    Random random = new Random();
     GumballMachine gumballMachine;
+
     public HasQuarterState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
     }
+
     @Override
     public void insertQuarter() {
         System.out.println("You can't insert another quarter");
@@ -20,8 +24,8 @@ public class HasQuarterState implements State {
     @Override
     public void turnCrank() {
         System.out.println("You turned...");
-        int winner = random.nextInt(10);
-        if ((winner == 0) && (gumballMachine.getCount() > 1)) {
+        int winner = (int) Math.floor(Math.random()*10);
+        if ((winner == 7) && (gumballMachine.getCount() > 1)) {
             gumballMachine.setState(gumballMachine.getWinnerState());
         }
         else {

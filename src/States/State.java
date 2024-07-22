@@ -1,3 +1,6 @@
+//6510450585 Prakasit Jaiharn
+package States;
+
 public interface State {
     public void insertQuarter();
     public void ejectQuarter();

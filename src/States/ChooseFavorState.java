@@ -1,10 +1,12 @@
-import Models.GumballMachine;
-import States.State;
+//6510450585 Prakasit Jaiharn
+package States;
 
-public class ChooseFavor implements State {
+import Models.GumballMachine;
+
+public class ChooseFavorState implements State {
     GumballMachine gumballMachine;
 
-    ChooseFavor(GumballMachine gumballMachine) {
+    public ChooseFavorState(GumballMachine gumballMachine) {
         this.gumballMachine = gumballMachine;
     }
 
